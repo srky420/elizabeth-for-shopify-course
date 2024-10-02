@@ -12,8 +12,7 @@
         <button
           type="button"
           x-on:click="mobileMenuOpen = true"
-          class="bg-white p-2 inline-flex items-center justify-center focus:outline-none"
-        >
+          class="bg-white p-2 inline-flex items-center justify-center focus:outline-none">
           {% render 'icon-menu' %}
         </button>
       </div>
@@ -27,8 +26,7 @@
               <button
                 type="button"
                 x-on:click="{{ link_handle }} = !{{ link_handle }}"
-                class="inline-flex items-center text-base text-gray-500 hover:text-gray-900"
-              >
+                class="inline-flex items-center text-base text-gray-500 hover:text-gray-900">
                 {{ link.title }}
                 {% render 'icon-dropdown' %}
               </button>
@@ -37,8 +35,7 @@
               <div
                 x-show="{{ link_handle }}"
                 @click.away="{{ link_handle }} = false"
-                class="absolute z-10 -ml-5 mt-5 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
-              >
+                class="absolute z-10 -ml-5 mt-5 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
                 <div class="shadow-lg border ring-black ring-opacity-5 overflow-hidden rounded-lg">
                   <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                     {% for sublink in link.links %}
@@ -54,10 +51,7 @@
             </div>
           {% else %}
             <div class="relative">
-              <a
-                href="{{ link.url }}"
-                class="text-base text-gray-500 hover:text-gray-900 {% if link.active == true %}text-black{% endif %}"
-              >
+              <a href="{{ link.url }}" class="text-base text-gray-500 hover:text-gray-900 {% if link.active == true %}text-black{% endif %}">
                 {{- link.title -}}
               </a>
             </div>
@@ -74,7 +68,7 @@
           <a href="{{ routes.account_login_url }}" class="text-base text-gray-500 hover:text-gray-900">Login</a>
           <a href="{{ routes.account_register_url }}" class="text-base text-gray-500 hover:text-gray-900">Register</a>
         {% endif %}
-       
+
       </div>
     </div>
   </div>
@@ -89,7 +83,10 @@
             <h1 class="text-lg text-gray-500">{{ section.settings.header_title }}</h1>
           </div>
           <div class="-mr-2">
-            <button type="button" x-on:click="mobileMenuOpen = false" class="bg-white rounded-md p-2 text-gray-500">
+            <button
+              type="button"
+              x-on:click="mobileMenuOpen = false"
+              class="bg-white rounded-md p-2 text-gray-500">
               {% render 'icon-close' %}
             </button>
           </div>
@@ -105,28 +102,21 @@
                   <button
                     x-on:click="{{ link_handle }} = !{{ link_handle }}"
                     type="button"
-                    class="text-base text-gray-500 hover:text-gray-900 flex items-center justify-between w-full"
-                  >
+                    class="text-base text-gray-500 hover:text-gray-900 flex items-center justify-between w-full">
                     <div>{{ link.title }}</div>
                     {% render 'icon-dropdown' %}
                   </button>
 
                   <div x-show="{{ link_handle }}" class="grid gap-y-7 py-3">
                     {% for sublink in link.links %}
-                      <a
-                        href="{{ sublink.url }}"
-                        class="-m-3 p-3 mt-2 flex items-center rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-50"
-                      >
+                      <a href="{{ sublink.url }}" class="-m-3 p-3 mt-2 flex items-center rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-50">
                         <span class="ml-3 text-base font-medium text-gray-500">{{ sublink.title }}</span>
                       </a>
                     {% endfor %}
                   </div>
                 </div>
               {% else %}
-                <a
-                  href="{{ link.url }}"
-                  class="-m-3 p-3 flex items-center rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-50 {% if link.active %}text-black{% endif %}"
-                >
+                <a href="{{ link.url }}" class="-m-3 p-3 flex items-center rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-50 {% if link.active %}text-black{% endif %}">
                   {{ link.title }}
                 </a>
               {% endif %}
@@ -148,8 +138,7 @@
         "label": "Title",
         "default": "Elizabeth Store",
         "info": "Enter your Store name here"
-      },
-      {
+      }, {
         "type": "link_list",
         "id": "menu",
         "label": "Header menu",
