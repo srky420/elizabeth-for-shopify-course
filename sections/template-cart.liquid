@@ -7,11 +7,14 @@
       </div>
     </div>
 
+    <!-- CHANGE/CHECKOUT FORM -->
     <div class="max-w-6xl flex flex-col my-10 mx-auto">
       <form
         action="{{ routes.cart_url }}"
         method="post"
         novalidate>
+
+        <!-- TABLE TO RENDER CART ITEMS -->
         <table class="table-auto divide-y divide-gray-200 my-4 w-full">
           <thead class="">
             <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Product</th>
@@ -57,6 +60,7 @@
           </tbody>
         </table>
 
+        <!-- CART NOTES TEXT ARES -->
         <div class="flex flex-col md:flex-row items-center justify-between">
           <div class="w-full my-4">
             <div class="flex flex-col items-start">
@@ -67,6 +71,8 @@
                 class="w-full md:max-w-lg resize-none border h-20 p-2"></textarea>
             </div>
           </div>
+
+          <!-- CART BUTTONS WITH BLOCKS -->
           <div class="w-full my-4 md:w-80">
             {% for block in section.blocks %}
               {% case block.type %}
@@ -98,6 +104,8 @@
       </form>
     </div>
   </div>
+
+<!-- EMPTY CART CASE -->
 {% else %}
   <div class="max-w-6xl h-60 my-4 mx-auto flex items-center justify-center">
     <div class="text-center">
