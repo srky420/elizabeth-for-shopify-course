@@ -1422,6 +1422,10 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:w-80 {
+    width: 20rem;
+  }
+
   .sm\:gap-8 {
     gap: 2rem;
   }
