@@ -69,7 +69,7 @@
         <input
           type="hidden"
           name="id"
-          value="{{ product.selected_variant.id }}">
+          value="{{ selected_variant.id }}">
 
         {% for block in section.blocks %}
           {% case block.type %}
@@ -179,8 +179,9 @@
   </div>
 </div>
 
+
 <script>
-      const swiper = new Swiper('.swiper', {
+    const swiper = new Swiper('.swiper', {
     // Optional parameters
     direction: 'horizontal',
     loop: true,
@@ -202,7 +203,6 @@
     },
       });
 </script>
-
 <script>
   class VariantSelector extends HTMLElement {
     constructor() {
