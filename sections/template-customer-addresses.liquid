@@ -125,6 +125,11 @@
             class="w-full text-gray-700 border px-4 py-3 focus:outline-none">
         </div>
 
+        <div class="mb-4">
+          {{ form.set_as_default_checkbox }}
+          <label for="address_default_address_{{ form.id }}" class="upper text-gray-700 text-xs font-medium mb-4">Set as Default Address</label>
+        </div>
+
         <div class="flex flex-row gap-2">
           <button type="submit" class="w-full font-medium text-white bg-gray-700 hover:bg-gray-900 px-4 py-2">Create Address</button>
           <button type="reset" class="w-full font-medium text-gray-700 border border-gray-700 px-4">Cancel</button>
@@ -152,8 +157,18 @@
 
               <div class="flex flex-row gap-2">
                 <button x-on:click="address_{{ address.id }} = true" class="w-full text-xs text-white bg-gray-700 hover:bg-gray-900 font-medium py-2">Edit</button>
-                <button class="w-full text-xs text-gray-700 border font-medium py-2">Delete</button>
+                <button
+                  data-delete-address
+                  data-url="{{ address.url }}"
+                  class="w-full text-xs text-gray-700 border font-medium py-2">Delete</button>
               </div>
+
+              <form action="{{ address.url }}" method="post">
+                <input
+                  type="hidden"
+                  name="_method"
+                  value="delete">
+              </form>
             </div>
 
             <!-- ADDRESSES EDIT FORM MODAL -->
@@ -270,6 +285,11 @@
                       class="w-full text-gray-700 border px-4 py-3 focus:outline-none">
                   </div>
 
+                  <div class="mb-4">
+                    {{ form.set_as_default_checkbox }}
+                    <label for="address_default_address_{{ form.id }}" class="upper text-gray-700 text-xs font-medium mb-4">Set as Default Address</label>
+                  </div>
+
                   <div class="flex flex-row gap-2">
                     <button type="submit" class="w-full font-medium text-white bg-gray-700 hover:bg-gray-900 px-4 py-2">Edit Address</button>
                     <button type="reset" class="w-full font-medium text-gray-700 border border-gray-700 px-4">Cancel</button>
@@ -291,10 +311,12 @@
       this.cacheDOM();
       this.init();
       this.addressSelectorOnChange();
+      this.deleteButtonsEventListener();
     }
   
     cacheDOM() {
       this.addressesSelector = document.querySelectorAll("select[data-contry-selector]");
+      this.deleteAddressBtns = document.querySelectorAll("button[data-delete-address]");
     }
   
     init() {
@@ -347,6 +369,20 @@
         provinceSelector.innerHTML = options;
       }
     }
+  
+    deleteButtonsEventListener() {
+      this.deleteAddressBtns.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          const url = btn.dataset.url;
+          let confirmation = window.confirm("Do you really wish to DELETE this Address?");
+          if (confirmation) {
+            document.querySelector(`form[action="${url}"]`).submit();
+          }
+        });
+      });
+    }
+  
+  
   }
   
   const customerAddress = new CustomerAddress();
