@@ -15,6 +15,7 @@
             {% for order in customer.orders %}
               <div class="relative">
                 <div class="w-full min-h-80 bg-gray-200 rounded-md overflow-hidden lg:h-80">
+                  <a href="{{ order.customer_url }}">
                   {% if order.line_items.first.image %}
                     <img
                       class="w-full h-full object-center object-cover"
@@ -25,6 +26,7 @@
                   {% else %}
                     {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-center object-cover' }}
                   {% endif %}
+                  </a>
                 </div>
 
                 <div class="mt-4 flex items-start justify-between">
