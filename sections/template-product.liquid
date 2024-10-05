@@ -42,11 +42,11 @@
       </div>
       <!-- SM SIZE -->
       <div class="md:hidden">
-        <div class="swiper h-94">
+        <div class="swiper">
           <div class="swiper-wrapper">
             {% for media in product.media %}
               <div class="swiper-slide">
-                <div class="h-80 overflow-hidden p-2">
+                <div class="h-[100vw] overflow-hidden p-2">
                   {% render 'product-media'
                     , media: media %}
                 </div>
@@ -181,27 +181,29 @@
 
 
 <script>
-    const swiper = new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
-    
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
-    
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
+  document.addEventListener("DOMContentLoaded", () => {
+    try {
+      const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+        
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
       });
+    }
+    catch(e) {
+      console.log(e);
+    }
+  });
 </script>
 <script>
   class VariantSelector extends HTMLElement {
