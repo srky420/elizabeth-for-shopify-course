@@ -1,0 +1,43 @@
+<div class=" mt-16 py-8 md:py-12 bg-gray-100">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div>
+        <h1 class="text-3xl text-gray-700 font-medium">
+          <a href="{{ shop.url }}">Elizabeth Store</a>
+        </h1>
+      </div>
+      <div class="sm:ms-auto">
+        <h3 class="text-xl font-medium mb-3 text-gray-700">Accounts</h3>
+        <ul>
+          {% if customer %}
+            <li class="mb-2">
+              <a href="{{ routes.account_url }}" class="text-gray-700 hover:text-gray-500">Your Account</a>
+            </li>
+            <li class="mb-2">
+              <a href="{{ routes.account_logout_url }}" class="text-gray-700 hover:text-gray-500">Logout</a>
+            </li>
+          {% else %}
+            <li class="mb-2">
+              <a href="{{ routes.account_login_url }}" class="text-gray-700 hover:text-gray-500">Login</a>
+            </li>
+            <li class="mb-2">
+              <a href="{{ routes.account_register_url }}" class="text-gray-700 hover:text-gray-500">Register</a>
+            </li>
+          {% endif %}
+
+        </ul>
+      </div>
+      <div class="sm:ms-auto">
+        <h3 class="text-xl font-medium mb-3 text-gray-700">Products</h3>
+        <ul>
+          <li class="mb-2">
+            <a href="{{ routes.all_products_collection_url }}" class="text-gray-700 hover:text-gray-500">Catalog</a>
+          </li>
+          <li class="mb-2">
+            <a href="{{ routes.collections_url }}" class="text-gray-700 hover:text-gray-500">Collections</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

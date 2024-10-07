@@ -10,6 +10,7 @@
   {{ content_for_header }}
     <!-- Header hook for plugins -->
     {{ 'application.css' | asset_url | stylesheet_tag }}
+    {{ 'index.css' | asset_url | stylesheet_tag }}
     <script defer src="{{ 'application.js' | asset_url }}"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
@@ -23,5 +24,6 @@
     <main role="main">
       {{ content_for_layout }}
     </main>
+    {% section 'footer' %}
   </body>
 </html>

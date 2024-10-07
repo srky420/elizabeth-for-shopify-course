@@ -1,0 +1,40 @@
+<div class="max-w-6xl mx-auto px-4 mb-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center relative">
+    <div class="w-full">
+      <h1 class="text-gray-700 font-bold my-3 text-6xl">{{ section.settings.hero_heading }}</h1>
+      <p class="text-gray-500 font-medium my-3">{{ section.settings.hero_text }}</p>
+      <button class="my-4 px-4 py-3 bg-gray-900 hover:bg-gray-700 text-white flex items-center justify-center">
+        <a href="{{ routes.account_url }}">Get Started</a>
+        <span class="-rotate-90 mt-2">{% render 'icon-dropdown' %}</span>
+      </button>
+    </div>
+
+    <div class="w-full h-[80vh] overflow-hidden">
+      <img
+        src="{{ 'banner.jpg' | asset_url | image_url: 'medium'}}"
+        alt=""
+        class="w-full h-full object-cover"
+        width="400"
+        height="400">
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Hero",
+    "settings": [
+      {
+        "type": "text",
+        "id": "hero_heading",
+        "default": "Smart. Elegant. Footwear.",
+        "label": "Hero Heading"
+      }, {
+        "type": "text",
+        "id": "hero_text",
+        "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, unde.",
+        "label": "Hero Text"
+      }
+    ]
+  }
+{% endschema %}

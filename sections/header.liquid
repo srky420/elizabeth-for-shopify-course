@@ -2,7 +2,7 @@
 
 <!-- MAIN HEADER CONTAINER -->
 <div
-  class="relative bg-white"
+  class="relative bg-white shadow-md"
   x-data="{ mobileMenuOpen: false, searchBarOpen: false }"
   x-cloak>
   <div class="mx-auto px-4 sm:px-6">
@@ -21,7 +21,7 @@
       </div>
 
       <!-- NAVIGATION MENU -->
-      <nav class="hidden md:flex space-x-10">
+      <nav class="hidden lg:flex space-x-10">
         {% for link in main_menu_linklist %}
           {% assign link_handle = link.handle | replace: '-', '_' %}
           {% if link.links != blank %}
@@ -54,7 +54,7 @@
             </div>
           {% else %}
             <div class="relative">
-              <a href="{{ link.url }}" class="text-base text-gray-500 hover:text-gray-900 {% if link.active == true %}text-black{% endif %}">
+              <a href="{{ link.url }}" class="text-base text-gray-500 hover:text-gray-900 {% if link.active == true %}font-bold{% endif %}">
                 {{- link.title -}}
               </a>
             </div>
@@ -62,7 +62,7 @@
         {% endfor %}
       </nav>
 
-      <div class="hidden md:flex items-center justify-end md:flex-1 space-x-5">
+      <div class="hidden lg:flex items-center justify-end md:flex-1 space-x-5">
 
         <button
           type="button"
@@ -92,7 +92,7 @@
   </div>
 
   <!-- MOBILE MENU CONTAINER -->
-  <div x-show="mobileMenuOpen" class="absolute z-10 top-0 inset-x-0 p-2 transform origin-top-left md:hidden">
+  <div x-show="mobileMenuOpen" class="absolute z-10 top-0 inset-x-0 p-2 transform origin-top-left lg:hidden">
     <div class="shadow-lg rounded-lg ring-1 ring-black ring-opacity-5 bg-white w-full">
       <div class="p-5 divide-y-2 divide-gray-50">
         <!-- MOBILE MENU HEADER TITLE PLUS CLOSE BUTTON -->

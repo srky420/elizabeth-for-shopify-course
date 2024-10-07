@@ -9,6 +9,9 @@
 */
 {
   "sections": {
+    "hero": {
+      "type": "hero"
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -35,6 +38,7 @@
     }
   },
   "order": [
+    "hero",
     "featured_collection",
     "featured_collection_M7FLrf",
     "featured_collection_JTrhLA"
